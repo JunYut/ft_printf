@@ -3,21 +3,22 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 # Sources and targets
-SRC_DIR = src
-INCL_DIR = include
+SRC_DIR = src/
+INCL_DIR = include/
 SOURCES = 
-OBJECTS = $(SOURCES:.c=.o)
+SRC_PATH = $(addprefix SRC_DIR, $(SOURCES))
+OBJECTS = $(SRC_PATH:.c=.o)
 NAME = libftprintf.a
 
 # Rules and recipes
 all: $(NAME)
 
-$(NAME): 
+$(NAME): $(OBJECTS)
 	ar rcs $@ $^
 	ranlib $@
 
 clean:
-	rm -f
+	rm -f $(OBJECTS)
 
 fclean: clean
 	rm -f $(NAME)
