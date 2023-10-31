@@ -1,0 +1,21 @@
+ver 1.0
+{
+	check: format_specifier_count same as va_arg_count
+	if check failed:
+		raise error
+	
+	check: format_specifier match va_arg
+	if check failed:
+		raise error
+
+	write string
+}
+
+ver 1.1
+{
+	loop(string):
+		if format_specifier:
+			write va_arg
+		else:
+			write char
+}
