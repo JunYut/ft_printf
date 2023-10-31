@@ -4,8 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 # Sources and targets
 SRC_DIR = src/
-INCL_DIR = include/
-SOURCES = 
+SOURCES = ft_printf.c
 SRC_PATH = $(addprefix SRC_DIR, $(SOURCES))
 OBJECTS = $(SRC_PATH:.c=.o)
 NAME = libftprintf.a
