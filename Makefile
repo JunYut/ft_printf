@@ -28,7 +28,7 @@ clean:
 	rm -f $(OBJECTS)
 
 fclean: clean
-	rm -f $(LIBFT)
+	rm -f $(LIBFT_DIR)$(LIBFT)
 	rm -f $(NAME)
 
 re: fclean all
