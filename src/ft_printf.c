@@ -6,13 +6,13 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 08:40:17 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/03 09:46:47 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/03 14:44:47 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static char	*arg_parser(const char *format, va_list args)
+const char	*arg_parser(const char *format, va_list args)
 {
 	char	*arg_str;
 	
@@ -45,6 +45,7 @@ int	ft_printf(const char *format, ...)
 	int		len;
 	int		i;
 
+	va_start(args, format);
 	len = 0;
 	i = -1;
 	while (format[++i] != 0)
@@ -61,6 +62,7 @@ int	ft_printf(const char *format, ...)
 			write(1, format + i, 1);
 		}
 	}
+	va_end(args);
 	return (len);
 }
 
@@ -68,6 +70,7 @@ int	ft_printf(const char *format, ...)
 */
 int main(void)
 {
-	printf("Original:\n");
-	printf("%d\n");
+	ft_printf("this is a string\n");
+	ft_printf("%c\n", 'a');
+	ft_printf("%s\n", "printing...");
 }
