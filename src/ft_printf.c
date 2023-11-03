@@ -6,60 +6,62 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 08:40:17 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/02 15:51:52 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/03 09:46:47 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int	is_format_specifier(const char *format)
-{
-	if (*(format + 1) == 'c')
-		return (1);
-	else if (*(format + 1) == 's')
-		return (2);
-	else if (*(format + 1) == 'p')
-		return (3);
-	else if (*(format + 1) == 'd')
-		return (4);
-	else if (*(format + 1) == 'i')
-		return (5);
-	else if (*(format + 1) == 'u')
-		return (6);
-	else if (*(format + 1) == 'x')
-		return (7);
-	else if (*(format + 1) == 'X')
-		return (8);
-	else if (*(format + 1) == '%')
-		return (9);
-	return (0);
-}
-
-static char	*arg_parser(int format_specifier, va_list args)
+static char	*arg_parser(const char *format, va_list args)
 {
 	char	*arg_str;
 	
-	if (format_specifier == 1)
-		arg_str = char_parser()
+	arg_str = 0;
+	if (*(format + 1) == 'c')
+		arg_str = char_parser(args);
+	else if (*(format + 1) == 's')
+		arg_str = str_parser(args);
+	else if (*(format + 1) == 'p')
+		arg_str = ptr_parser(args);
+	else if (*(format + 1) == 'd')
+		arg_str = decimal_parser(args);
+	else if (*(format + 1) == 'i')
+		arg_str = int_parser(args);
+	else if (*(format + 1) == 'u')
+		arg_str = unsigned_parser(args);
+	else if (*(format + 1) == 'x')
+		arg_str = low_hexa_parser(args);
+	else if (*(format + 1) == 'X')
+		arg_str = up_hexa_parser(args);
+	else if (*(format + 1) == '%')
+		arg_str = ft_strdup("%");
+	return (arg_str);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int		format_specifier;
-	size_t	len;
+	char	*parsed_arg;
+	int		len;
 	int		i;
 
+	len = 0;
 	i = -1;
 	while (format[++i] != 0)
 	{
-		format_specifier = 0;
 		if (format[i] == '%')
-			if ((format_specifier = is_format_specifier(format + i)) != 0)
-				
+		{
+			parsed_arg = arg_parser(format + i, args);
+			len += ft_strlen(parsed_arg);
+			ft_putstr_fd(parsed_arg, 1);
+		}
 		else
+		{
+			++len;
 			write(1, format + i, 1);
+		}
 	}
+	return (len);
 }
 
 /*
@@ -67,5 +69,5 @@ int	ft_printf(const char *format, ...)
 int main(void)
 {
 	printf("Original:\n");
-	printf("%d\n")
+	printf("%d\n");
 }
