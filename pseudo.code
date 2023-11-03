@@ -30,3 +30,13 @@ ver1.3
 			write char
 	return len
 }
+-------------------------------------------------------------------------------
+ptr_parser:
+
+ver 1.0
+{
+	get: arg -> uintptr_t
+	create: arg_str
+	parse(arg_str)
+	return parsed_arg
+}
