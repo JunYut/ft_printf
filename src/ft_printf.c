@@ -19,8 +19,8 @@ int	ft_printf(const char *format, ...)
 }
 
 /*
-*/
 int main(void)
 {
 
 }
+*/

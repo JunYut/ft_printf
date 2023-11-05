@@ -25,7 +25,7 @@ OBJECTS = $(SOURCES:.c=.o)
 BONUS =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
 		ft_lstdelone.c ft_lstiter.c ft_lstclear.c ft_lstmap.c
 BONUS_OBJS = $(BONUS:.c=.o)
-INCLUDE = libft.h
+INCLUDE = .
 NAME = libft.a
 
 #Rules & recipes
@@ -40,7 +40,7 @@ bonus: $(OBJECTS) $(BONUS_OBJS)
 	ranlib $(NAME)
 
 .c.o:
-	cc $(CFLAGS) -c -I $(INCLUDE) $< -o $(<:.c=.o)
+	cc $(CFLAGS) -c -I$(INCLUDE) $< -o $(<:.c=.o)
 
 clean :
 	rm -f $(OBJECTS) $(BONUS_OBJS)
