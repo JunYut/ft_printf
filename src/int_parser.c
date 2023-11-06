@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 15:34:55 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/03 15:35:04 by tjun-yu          ###   ########.fr       */
+/*   Created: 2023/11/03 15:34:55 by tjun-yu           #:q+#    #+#             */
+/*   Updated: 2023/11/06 10:29:36 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 const char	*int_parser(va_list args)
 {
-	char	*parsed_arg;
-	
-	
-	return (parsed_arg);
+	return (decimal_parser(args));
 }

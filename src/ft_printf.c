@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 08:40:17 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/03 14:44:47 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/06 15:51:47 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 const char	*arg_parser(const char *format, va_list args)
 {
-	char	*arg_str;
+	const char	*arg_str;
 	
 	arg_str = 0;
 	if (*(format + 1) == 'c')
@@ -40,10 +40,10 @@ const char	*arg_parser(const char *format, va_list args)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	args;
-	char	*parsed_arg;
-	int		len;
-	int		i;
+	va_list		args;
+	const char	*parsed_arg;
+	int			len;
+	int			i;
 
 	va_start(args, format);
 	len = 0;
@@ -54,7 +54,7 @@ int	ft_printf(const char *format, ...)
 		{
 			parsed_arg = arg_parser(format + i, args);
 			len += ft_strlen(parsed_arg);
-			ft_putstr_fd(parsed_arg, 1);
+			ft_putstr_fd((char *)parsed_arg, 1);
 		}
 		else
 		{
@@ -64,13 +64,4 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (len);
-}
-
-/*
-*/
-int main(void)
-{
-	ft_printf("this is a string\n");
-	ft_printf("%c\n", 'a');
-	ft_printf("%s\n", "printing...");
 }
