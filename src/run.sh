@@ -1,2 +1,2 @@
-cc -Wall -Werror ptr_parser.c -o a.out -L../libft -lft
+cc -Wall -Werror *.c -o a.out -L../libft -lft
 ./a.out
