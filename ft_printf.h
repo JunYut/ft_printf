@@ -6,12 +6,13 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 08:41:12 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/03 14:58:56 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/06 15:30:23 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -32,5 +33,9 @@ const char	*int_parser(va_list args);
 const char	*unsigned_parser(va_list args);
 const char	*low_hexa_parser(va_list args);
 const char	*up_hexa_parser(va_list args);
+
+void		reverse_arr(char *hexa);
+char		*decimal_to_hexa(uintptr_t decimal);
+void		hexa_to_a(char **hexa);
 
 #endif
