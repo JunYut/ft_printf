@@ -1,4 +1,4 @@
-LEAK_CHECK=0
+LEAK_CHECK=$1
 
 cc -Wall -Wextra -Werror *.c -o a.out -Llibft -L. -lft -lftprintf
 
