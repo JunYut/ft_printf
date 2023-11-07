@@ -1,7 +1,7 @@
 MAKE_RE=$1
 LEAK_CHECK=$2
 
-if [[ MAKE_RE -eq "re" ]]; then
+if [[ MAKE_RE -eq 1 ]]; then
 	make re
 fi
 
