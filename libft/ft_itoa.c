@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:49:28 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/10/30 12:35:36 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/07 12:58:40 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	count_tens(size_t digits)
 	return (tens);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long n)
 {
 	char	*num_str;
 	long	num;
