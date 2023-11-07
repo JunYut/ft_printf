@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 08:40:17 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/06 15:51:47 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/07 09:45:37 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,10 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			parsed_arg = arg_parser(format + i, args);
+			parsed_arg = arg_parser(format + i++, args);
 			len += ft_strlen(parsed_arg);
 			ft_putstr_fd((char *)parsed_arg, 1);
+			free((void *)parsed_arg);
 		}
 		else
 		{
