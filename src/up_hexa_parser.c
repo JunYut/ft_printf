@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:36:15 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/07 13:29:24 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/07 13:39:12 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ const char	*up_hexa_parser(va_list args)
 	parsed_arg = (char *)malloc(64 * sizeof(char));
 	if (parsed_arg == NULL)
 		return (NULL);
+	*parsed_arg = 0;
 	arg = va_arg(args, uintptr_t);
 	up_hexa = decimal_to_up_hexa(arg);
 	ft_strlcat(parsed_arg, up_hexa, 64);
