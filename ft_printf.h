@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 08:41:12 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/06 15:56:36 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/07 10:45:29 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,5 @@ const char	*up_hexa_parser(va_list args);
 
 void		reverse_arr(char *hexa);
 char		*decimal_to_hexa(uintptr_t decimal);
-void		hexa_to_a(char **hexa);
 
 #endif
