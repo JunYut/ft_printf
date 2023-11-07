@@ -6,22 +6,32 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:36:15 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/06 15:54:01 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/07 13:29:24 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void	up_hexa_to_a(char **hexa)
+static char	*decimal_to_up_hexa(uintptr_t decimal)
 {
-	while(**hexa != 'Z')
+	char	*hexa;
+	int		i;
+
+	hexa = (char *)malloc(64 * sizeof(char));
+	if (hexa == NULL)
+		return (NULL);
+	i = -1;
+	while (decimal != 0)
 	{
-		if (**hexa >= '0' && **hexa <= '9')
-			**hexa += '0';
-		else if (**hexa >= 'a' && **hexa <= 'f')
-			**hexa += 55;
-		++(*hexa);
+		if (decimal % 16 > 10)
+			hexa[++i] = decimal % 16 + 'A' - 10;
+		else
+			hexa[++i] = decimal % 16 + '0';
+		decimal /= 16;
 	}
+	reverse_arr(hexa);
+	free(hexa);
+	return (hexa);
 }
 
 const char	*up_hexa_parser(va_list args)
@@ -34,10 +44,7 @@ const char	*up_hexa_parser(va_list args)
 	if (parsed_arg == NULL)
 		return (NULL);
 	arg = va_arg(args, uintptr_t);
-	ft_strlcat(parsed_arg, "0x", sizeof(parsed_arg));
-	up_hexa = decimal_to_hexa(arg);
-	up_hexa_to_a(&up_hexa);
-	ft_strlcat(parsed_arg, up_hexa, sizeof(parsed_arg));
-	free(up_hexa);
+	up_hexa = decimal_to_up_hexa(arg);
+	ft_strlcat(parsed_arg, up_hexa, 64);
 	return (parsed_arg);
 }
