@@ -1,4 +1,9 @@
-LEAK_CHECK=$1
+MAKE_RE=$1
+LEAK_CHECK=$2
+
+if [[ MAKE_RE -eq "re" ]]; then
+	make re
+fi
 
 cc -Wall -Wextra -Werror *.c -o a.out -Llibft -L. -lft -lftprintf
 
