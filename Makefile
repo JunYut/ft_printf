@@ -19,7 +19,7 @@ $(NAME): $(OBJECTS)
 	ar rcs $@ $(OBJECTS)
 	ranlib $@
 
-$(OBJECTS): $(LIBFT)
+$(OBJECTS): $(SRC_PATH) $(LIBFT)
 
 $(LIBFT):
 	make all -C $(LIBFT_DIR)
