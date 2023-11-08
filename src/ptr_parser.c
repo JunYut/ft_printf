@@ -6,13 +6,13 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:32:00 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/08 15:28:01 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/08 16:05:04 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static const char	*hexa_parser(unsigned long long arg, char * parsed_arg)
+static const char	*hexa_parser(unsigned long long arg, char *parsed_arg)
 {
 	char	*low_hexa;
 	
@@ -34,5 +34,5 @@ const char	*ptr_parser(va_list args)
 		return (NULL);
 	*parsed_arg = 0;
 	ft_strlcpy(parsed_arg, "0x", 64);
-	return(hexa_parser(arg, parsed_arg));
+	return(hexa_parser(args));
 }
