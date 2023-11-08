@@ -6,13 +6,13 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:36:15 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/08 11:18:23 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/08 13:18:02 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static char	*decimal_to_up_hexa(uintptr_t decimal)
+static char	*decimal_to_up_hexa(unsigned long long decimal)
 {
 	char	*hexa;
 	int		i;
@@ -37,14 +37,14 @@ static char	*decimal_to_up_hexa(uintptr_t decimal)
 const char	*up_hexa_parser(va_list args)
 {
 	char		*parsed_arg;
-	uintptr_t	arg;
+	unsigned long long	arg;
 	char		*up_hexa;
 
 	parsed_arg = (char *)malloc(64 * sizeof(char));
 	if (parsed_arg == NULL)
 		return (NULL);
 	*parsed_arg = 0;
-	arg = va_arg(args, uintptr_t);
+	arg = va_arg(args, unsigned long long);
 	up_hexa = decimal_to_up_hexa(arg);
 	ft_strlcat(parsed_arg, up_hexa, 64);
 	return (parsed_arg);

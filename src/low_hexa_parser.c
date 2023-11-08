@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:35:50 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/08 10:51:48 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/08 13:17:48 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	reverse_arr(char *hexa)
 	}
 }
 
-char	*decimal_to_hexa(uintptr_t decimal)
+char	*decimal_to_hexa(unsigned long long decimal)
 {
 	char	*hexa;
 	int		i;
@@ -53,14 +53,14 @@ char	*decimal_to_hexa(uintptr_t decimal)
 const char	*low_hexa_parser(va_list args)
 {
 	char		*parsed_arg;
-	uintptr_t	arg;
+	unsigned long long	arg;
 	char		*low_hexa;
 
 	parsed_arg = (char *)malloc(64 * sizeof(char));
 	if (parsed_arg == NULL)
 		return (NULL);
 	*parsed_arg = 0;
-	arg = va_arg(args, uintptr_t);
+	arg = va_arg(args, unsigned long long);
 	low_hexa = decimal_to_hexa(arg);
 	ft_strlcat(parsed_arg, low_hexa, 64);
 	return (parsed_arg);
