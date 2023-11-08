@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 08:40:17 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/08 10:28:23 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/08 13:02:26 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,34 @@ const char	*arg_parser(const char *format, va_list args)
 	return (arg_str);
 }
 
+static size_t	specifier_strlen(const char *s, char specifier)
+{
+	size_t	size;
+
+	if (specifier == 'c')
+		return (1);
+	size = 0;
+	while (s[size] != 0)
+		size++;
+	return (size);
+}
+
+static void	putstr(char *s, char specifier)
+{
+	int	i;
+
+	if (specifier == 'c' && *s == 0)
+	{
+		ft_putchar_fd(*s, 1);
+		return ;
+	}
+	if (s == NULL)
+		return ;
+	i = -1;
+	while (s[++i] != 0)
+		ft_putchar_fd(s[i], 1);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list		args;
@@ -53,8 +81,8 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			parsed_arg = arg_parser(format + i++, args);
-			len += ft_strlen(parsed_arg);
-			ft_putstr_fd((char *)parsed_arg, 1);
+			len += specifier_strlen(parsed_arg, *(format + i));
+			putstr((char *)parsed_arg, *(format + i));
 			free((void *)parsed_arg);
 		}
 		else
