@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:35:50 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/08 14:42:01 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/08 15:31:32 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*decimal_to_hexa(unsigned long long decimal)
 		decimal /= 16;
 	}
 	reverse_arr(hexa);
-	free(hexa);
+	//free(hexa);
 	return (hexa);
 }
 
