@@ -5,7 +5,7 @@ if [[ MAKE_RE -eq 1 ]]; then
 	make re
 fi
 
-cc -Wall -Wextra -Werror *.c -o a.out -Llibft -L. -lft -lftprintf
+cc -Wall -Wextra -Werror *.c -o a.out -L. -lftprintf
 
 if [[ LEAK_CHECK -eq 1 ]]; then
 	leaks -atExit -- ./a.out
