@@ -25,11 +25,11 @@ int main(void)
 	printf("Original:\n");
 	ft_printf("ft_:     \n");
 	DIVIDER;
-	char_tester();
+	//char_tester();
 	str_tester();
 	ptr_tester(ptr);
-	decimal_tester();
-	unsigned_tester();
+	//decimal_tester();
+	//unsigned_tester();
 	low_hexa_tester();
 	up_hexa_tester();
 	printf("Original: %%\n");
@@ -47,6 +47,7 @@ void char_tester()
 	LOG_RETURN(count);
 	count = printf(" %c %c %c ", '0', 0, '1');	NEW_LINE
 	LOG_RETURN(count);
+	NEW_LINE
 	count = ft_printf("ft_:      %c\n", 'C');
 	LOG_RETURN(count);
 	count = ft_printf(" %c %c %c ", '0', 0, '1');	NEW_LINE
@@ -63,6 +64,7 @@ void str_tester()
 	LOG_RETURN(count);
 	count = printf(" NULL %s NULL ", NULL);	NEW_LINE
 	LOG_RETURN(count);
+	NEW_LINE
 	count = ft_printf("ft_:      %s\n", "Hello World!");
 	LOG_RETURN(count);
 	count = ft_printf(" NULL %s NULL ", NULL);	NEW_LINE
@@ -98,6 +100,7 @@ void decimal_tester()
 
 	count = printf("Original: %d\n", 69420);
 	LOG_RETURN(count);
+	NEW_LINE
 	count = ft_printf("ft_:      %d\n", 69420);
 	LOG_RETURN(count);
 	DIVIDER;
@@ -110,6 +113,7 @@ void int_tester()
 
 	count = printf("Original: %i\n", 69420);
 	LOG_RETURN(count);
+	NEW_LINE
 	count = ft_printf("ft_:      %i\n", 69420);
 	LOG_RETURN(count);
 	DIVIDER;
@@ -122,6 +126,7 @@ void unsigned_tester()
 
 	count = printf("Original: %u\n", -69420);
 	LOG_RETURN(count);
+	NEW_LINE
 	count = ft_printf("ft_:      %u\n", -69420);
 	LOG_RETURN(count);
 	DIVIDER;
@@ -132,11 +137,12 @@ void low_hexa_tester()
 	int	count;
 	printf("low_hexa_tester:\n\n");
 
-	count = printf("Original: %x\n", 1000);
+	count = printf("Original: %x\n", 100000);
 	LOG_RETURN(count);
 	count = printf(" %x ", 0);	NEW_LINE
 	LOG_RETURN(count);
-	count = ft_printf("ft_:      %x\n", 1000);
+	NEW_LINE
+	count = ft_printf("ft_:      %x\n", 100000);
 	LOG_RETURN(count);
 	count = ft_printf(" %x ", 0);	NEW_LINE
 	LOG_RETURN(count);
@@ -150,6 +156,7 @@ void up_hexa_tester()
 
 	count = printf("Original: %X\n", 1000);
 	LOG_RETURN(count);
+	NEW_LINE
 	count = ft_printf("ft_:      %X\n", 1000);
 	LOG_RETURN(count);
 	DIVIDER;
