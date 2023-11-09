@@ -14,6 +14,7 @@ void int_tester();
 void unsigned_tester();
 void low_hexa_tester();
 void up_hexa_tester();
+void mix_tester();
 
 //_____________________________________________________________________________
 int main(void)
@@ -32,6 +33,7 @@ int main(void)
 	//unsigned_tester();
 	low_hexa_tester();
 	up_hexa_tester();
+	mix_tester();
 	printf("Original: %%\n");
 	ft_printf("ft_:      %%\n");
 	DIVIDER;
@@ -174,3 +176,23 @@ void up_hexa_tester()
 	DIVIDER;
 }
 
+void mix_tester()
+{
+	int count;
+	printf("mix_tester:\n\n");
+
+	count = printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%%\
+	 %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%%\
+	  %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %c%%", 
+	  'A', "42", 42, 42 ,42 , 42, 42, 'B', "-42", -42, -42 ,-42 ,-42, 42, 'C', "0", 0, 0 ,0 ,0, 42, 0);
+	NEW_LINE
+	LOG_RETURN(count);
+	NEW_LINE //----------------------------------------------------------------
+	count = ft_printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%%\
+	 %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%%\
+	  %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %c%%", 
+	  'A', "42", 42, 42 ,42 , 42, 42, 'B', "-42", -42, -42 ,-42 ,-42, 42, 'C', "0", 0, 0 ,0 ,0, 42, 0);
+	NEW_LINE
+	LOG_RETURN(count);
+	DIVIDER;
+}
