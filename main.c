@@ -26,11 +26,11 @@ int main(void)
 	printf("Original:\n");
 	ft_printf("ft_:     \n");
 	DIVIDER;
-	//char_tester();
+	char_tester();
 	str_tester();
 	ptr_tester(ptr);
-	//decimal_tester();
-	//unsigned_tester();
+	decimal_tester();
+	unsigned_tester();
 	low_hexa_tester();
 	up_hexa_tester();
 	mix_tester();
