@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 08:40:17 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/08 13:02:26 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/09 11:43:00 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 const char	*arg_parser(const char *format, va_list args)
 {
 	const char	*arg_str;
-	
+
 	arg_str = 0;
 	if (*(format + 1) == 'c')
 		arg_str = char_parser(args);

@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:36:15 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/09 11:19:10 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/09 11:44:35 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ const char	*up_hexa_parser(va_list args)
 {
 	char			*parsed_arg;
 	unsigned int	arg;
-	
+
 	arg = va_arg(args, unsigned int);
 	if (arg == 0)
 		return (ft_strdup("0"));
