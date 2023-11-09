@@ -83,12 +83,16 @@ void ptr_tester(int *ptr)
 	LOG_RETURN(count);
 	count = printf(" %p %p ", (void *)LONG_MIN, (void *)LONG_MAX); NEW_LINE
 	LOG_RETURN(count);
-	NEW_LINE
+	count = printf(" %p %p ", (void *)ULONG_MAX, (void *)-ULONG_MAX);	NEW_LINE
+	LOG_RETURN(count);
+	NEW_LINE //----------------------------------------------------------------
 	count = ft_printf("ft_:      %p\n", ptr);
 	LOG_RETURN(count);
 	count = ft_printf(" %p %p ", 0, 0);	NEW_LINE
 	LOG_RETURN(count);
 	count = ft_printf(" %p %p ", LONG_MIN, LONG_MAX); NEW_LINE
+	LOG_RETURN(count);
+	count = ft_printf(" %p %p ", (void *)ULONG_MAX, (void *)-ULONG_MAX);	NEW_LINE
 	LOG_RETURN(count);
 	DIVIDER;
 }
@@ -141,10 +145,18 @@ void low_hexa_tester()
 	LOG_RETURN(count);
 	count = printf(" %x ", 0);	NEW_LINE
 	LOG_RETURN(count);
-	NEW_LINE
+	count = printf(" %x ", (unsigned int)LONG_MAX);	NEW_LINE
+	LOG_RETURN(count);
+	count = printf(" %x ", (unsigned int)LONG_MIN);	NEW_LINE
+	LOG_RETURN(count);
+	NEW_LINE //----------------------------------------------------------------
 	count = ft_printf("ft_:      %x\n", 100000);
 	LOG_RETURN(count);
 	count = ft_printf(" %x ", 0);	NEW_LINE
+	LOG_RETURN(count);
+	count = ft_printf(" %x ", LONG_MAX);	NEW_LINE
+	LOG_RETURN(count);
+	count = ft_printf(" %x ", LONG_MIN);	NEW_LINE
 	LOG_RETURN(count);
 	DIVIDER;
 }
