@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 08:40:17 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/03 14:44:47 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:17:53 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 const char	*arg_parser(const char *format, va_list args)
 {
-	char	*arg_str;
-	
+	const char	*arg_str;
+
 	arg_str = 0;
 	if (*(format + 1) == 'c')
 		arg_str = char_parser(args);
@@ -38,12 +38,40 @@ const char	*arg_parser(const char *format, va_list args)
 	return (arg_str);
 }
 
+static size_t	specifier_strlen(const char *s, char specifier)
+{
+	size_t	size;
+
+	if (specifier == 'c')
+		return (1);
+	size = 0;
+	while (s[size] != 0)
+		size++;
+	return (size);
+}
+
+static void	putstr(char *s, char specifier)
+{
+	int	i;
+
+	if (specifier == 'c' && *s == 0)
+	{
+		ft_putchar_fd(*s, 1);
+		return ;
+	}
+	if (s == NULL)
+		return ;
+	i = -1;
+	while (s[++i] != 0)
+		ft_putchar_fd(s[i], 1);
+}
+
 int	ft_printf(const char *format, ...)
 {
-	va_list	args;
-	char	*parsed_arg;
-	int		len;
-	int		i;
+	va_list		args;
+	const char	*parsed_arg;
+	int			len;
+	int			i;
 
 	va_start(args, format);
 	len = 0;
@@ -52,9 +80,10 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			parsed_arg = arg_parser(format + i, args);
-			len += ft_strlen(parsed_arg);
-			ft_putstr_fd(parsed_arg, 1);
+			parsed_arg = arg_parser(format + i++, args);
+			len += specifier_strlen(parsed_arg, *(format + i));
+			putstr((char *)parsed_arg, *(format + i));
+			free((void *)parsed_arg);
 		}
 		else
 		{
@@ -65,12 +94,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
-
-/*
-int main(void)
-{
-	ft_printf("this is a string\n");
-	ft_printf("%c\n", 'a');
-	ft_printf("%s\n", "printing...");
-}
-*/
