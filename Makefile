@@ -6,24 +6,29 @@ CFLAGS = -Wall -Wextra -Werror
 SRC_DIR = src/
 SOURCES = ft_printf.c
 SRC_PATH = $(addprefix $(SRC_DIR), $(SOURCES))
+LIBFT_DIR = libft/
+LIBFT = libft.a
 OBJECTS = $(SRC_PATH:.c=.o)
 NAME = libftprintf.a
 
 # Rules and recipes
 all: $(NAME)
 
-$(NAME): libft_all $(OBJECTS)
-	ar rcs $@ $^
+$(NAME): $(OBJECTS)
+	ar rcs $@ $(OBJECTS)
 	ranlib $@
 
-libft_all:
-	@$(MAKE) -f libft/Makefile all
+$(OBJECTS): $(LIBFT)
+
+$(LIBFT):
+	make all -C $(LIBFT_DIR)
 
 clean:
-	@$(MAKE) -f libft/Makefile clean
+	make clean -C $(LIBFT_DIR)
 	rm -f $(OBJECTS)
 
 fclean: clean
+	rm -f $(LIBFT_DIR)$(LIBFT)
 	rm -f $(NAME)
 
 re: fclean all
