@@ -64,13 +64,13 @@ void str_tester()
 
 	count = printf("Original: %s\n", "Hello World!");
 	LOG_RETURN(count);
-	count = printf(" NULL %s NULL ", NULL);	NEW_LINE
-	LOG_RETURN(count);
+	// count = printf(" NULL %s NULL ", NULL);	NEW_LINE
+	// LOG_RETURN(count);
 	NEW_LINE
 	count = ft_printf("ft_:      %s\n", "Hello World!");
 	LOG_RETURN(count);
-	count = ft_printf(" NULL %s NULL ", NULL);	NEW_LINE
-	LOG_RETURN(count);
+	// count = ft_printf(" NULL %s NULL ", NULL);	NEW_LINE
+	// LOG_RETURN(count);
 	DIVIDER;
 }
 
@@ -90,7 +90,7 @@ void ptr_tester(int *ptr)
 	NEW_LINE //----------------------------------------------------------------
 	count = ft_printf("ft_:      %p\n", ptr);
 	LOG_RETURN(count);
-	count = ft_printf(" %p %p ", 0, 0);	NEW_LINE
+	count = ft_printf(" %p %p ", (void *)0, (void *)0);	NEW_LINE
 	LOG_RETURN(count);
 	count = ft_printf(" %p %p ", LONG_MIN, LONG_MAX); NEW_LINE
 	LOG_RETURN(count);

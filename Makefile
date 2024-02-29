@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 # Sources and targets
 SRC_DIR = src/
 SOURCES = 	ft_printf.c char_parser.c str_parser.c ptr_parser.c decimal_parser.c\
-			int_parser.c unsigned_parser.c low_hexa_parser.c up_hexa_parser.c
+			unsigned_parser.c low_hexa_parser.c up_hexa_parser.c
 SRC_PATH = $(addprefix $(SRC_DIR), $(SOURCES))
 OBJECTS = $(SRC_PATH:.c=.o)
 

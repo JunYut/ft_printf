@@ -6,7 +6,7 @@
 /*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 08:40:17 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/11/10 11:18:36 by we               ###   ########.fr       */
+/*   Updated: 2024/02/29 11:19:00 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ const char	*arg_parser(const char *format, va_list args)
 	else if (*(format + 1) == 'd')
 		arg_str = decimal_parser(args);
 	else if (*(format + 1) == 'i')
-		arg_str = int_parser(args);
+		arg_str = decimal_parser(args);
 	else if (*(format + 1) == 'u')
 		arg_str = unsigned_parser(args);
 	else if (*(format + 1) == 'x')
