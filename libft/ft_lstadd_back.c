@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tanjunyu8888@gmail.com>           +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:43:09 by tjun-yu           #+#    #+#             */
-/*   Updated: 2023/10/27 12:55:35 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/02/29 11:14:10 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
-{	
+{
 	if (lst == NULL || new == NULL)
 		return ;
 	if (*lst == NULL)
